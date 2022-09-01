@@ -11,13 +11,23 @@ Ejemplo: nFibonacci(7) retornará 13, ya que 13 es el dígito que está en la po
 Secuencia:  0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ... 
 
 
-Como ejercicio adicional y completamente opcional, al terminar de resolver este problema pueden intentar definir funciones que logren los mismos resultados pero de manera iterativa.
+Como ejercicio adicional y completamente opcional, al terminar de resolver este problema pueden intentar
+definir funciones que logren los mismos resultados pero de manera iterativa.
 */
 
 function nFactorial(n) {
+  if (n === 0) {
+    return 1;
+  }
+  return n * nFactorial(n - 1);
 }
-
+ // 1,1,2,3,5,8,13,21
 function nFibonacci(n) {
+  if (n < 2) {
+    return n;
+  } else {
+    return nFibonacci(n - 1) + nFibonacci(n - 2);
+  }
 }
 
 /*
@@ -29,9 +39,25 @@ Implementar la clase Queue, sabiendo que es una estructura de tipo FIFO, donde e
 Pueden utilizar class o función constructora.
 */
 
-function Queue() {
-
-}
+/* function Queue() { */
+  class Queue {
+    constructor() {
+      this.arr = []
+    }
+    enqueue(elemento) {
+      this.arr.push(elemento)
+    }
+    dequeue() {
+      if (this.arr.length == 0) {
+        return undefined;
+      }
+      return this.arr.shift()
+    }
+    size() {
+     return this.arr.length
+    }
+  } 
+ 
 
 // No modifiquen nada debajo de esta linea
 // --------------------------------
